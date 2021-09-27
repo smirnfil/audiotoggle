@@ -9,9 +9,9 @@
     NSError* __autoreleasing err = nil;
     NSString* mode = [NSString stringWithFormat:@"%@", [command.arguments objectAtIndex:0]];
     
-    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_None;
+    //UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_None;
     AVAudioSession *session = [AVAudioSession sharedInstance];
-    
+    /*
     if ([mode isEqualToString:@"earpiece"]) {
         [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&err];
         audioRouteOverride = kAudioSessionProperty_OverrideCategoryDefaultToSpeaker;
@@ -20,7 +20,18 @@
         [session setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:&err];
     } else if ([mode isEqualToString:@"normal"]) {
         [session setCategory:AVAudioSessionCategorySoloAmbient error:&err];
-    }
+    }*/
+    if ([mode isEqualToString:@"earpiece"]) {
+		[session setCategory:AVAudioSessionCategoryPlayAndRecord error:&err];
+		[session overrideOutputAudioPort:AVAudioSessionPortOverrideNone error:&err];
+
+	} else if ([mode isEqualToString:@"speaker"] || [mode isEqualToString:@"ringtone"]) {
+		[session setCategory:AVAudioSessionCategoryPlayAndRecord error:&err];
+		[session overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&err];
+
+	} else if ([mode isEqualToString:@"normal"]) {
+		[session setCategory:AVAudioSessionCategorySoloAmbient error:&err];
+	}
 }
 
 @end
