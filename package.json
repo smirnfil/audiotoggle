@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danielflippance/audiotoggle.git"
+    "url": "git+https://github.com/smirnfil/audiotoggle.git"
   },
 "keywords": [
     "ecosystem:cordova",
@@ -21,7 +21,7 @@
   "author": "alongubkin",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/danielflippance/audiotoggle/issues"
+    "url": "https://github.com/smirnfil/audiotoggle/issues"
   },
-  "homepage": "https://github.com/danielflippance/audiotoggle#readme"
+  "homepage": "https://github.com/smirnfil/audiotoggle#readme"
 }
